@@ -1,0 +1,64 @@
+<div class="flex-container">
+  <mat-form-field appearance="outline" class="input-field">
+    <mat-label>Boligverdi</mat-label>
+    <input
+      matInput
+      type="number"
+      placeholder="0"
+      [(ngModel)]="houseValue"
+      (input)="houseValueChanged($event.target)"
+    />
+    <span matTextSuffix>Kr</span>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="input-field">
+    <mat-label>Lånebeløp</mat-label>
+    <input
+      matInput
+      type="number"
+      placeholder="0"
+      [(ngModel)]="mortgageAmount"
+    />
+    <span matTextSuffix>Kr</span>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="input-field">
+    <mat-label>Nedbetalingstid</mat-label>
+    <input
+      matInput
+      type="number"
+      placeholder="0"
+      [(ngModel)]="repaymentPeriod"
+      (input)="repaymentPeriodChanged($event.target)"
+    />
+    <span matTextSuffix>År</span>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="input-field">
+    <mat-label>Rente på lån</mat-label>
+    <input
+      matInput
+      type="number"
+      placeholder="Rente på lån"
+      [(ngModel)]="loanInterest"
+    />
+    <span matTextSuffix>%</span>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="input-field">
+    <mat-label>Felleskostnader /mnd</mat-label>
+    <input
+      matInput
+      type="number"
+      placeholder="0"
+      [(ngModel)]="monthlyJointCosts"
+    />
+    <span matTextSuffix>Kr</span>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="input-field">
+    <mat-label>Brutto leieinntekter /mnd</mat-label>
+    <input matInput type="number" placeholder="0" [(ngModel)]="rentalIncome" />
+    <span matTextSuffix>Kr</span>
+  </mat-form-field>
+</div>
