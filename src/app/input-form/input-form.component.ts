@@ -36,6 +36,18 @@ export class InputFormComponent {
     this.change.emit(inputElement);
   }
 
+  monthlyJointCostsChanged(target: EventTarget | null){
+    this.monthlyJointCosts = Number((target as HTMLInputElement).value);
+    let inputElement: InputElement = this.getCurrentInputFields();
+    this.change.emit(inputElement);
+  }
+
+  rentalIncomeChanged(target: EventTarget | null){
+    this.rentalIncome = Number((target as HTMLInputElement).value);
+    let inputElement: InputElement = this.getCurrentInputFields();
+    this.change.emit(inputElement);
+  }
+
   getCurrentInputFields(): InputElement {
     let inputElement: InputElement = {
       houseValue: this.houseValue,

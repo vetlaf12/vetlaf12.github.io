@@ -52,13 +52,14 @@
       type="number"
       placeholder="0"
       [(ngModel)]="monthlyJointCosts"
+      (input)="monthlyJointCostsChanged($event.target)"
     />
     <span matTextSuffix>Kr</span>
   </mat-form-field>
 
   <mat-form-field appearance="outline" class="input-field">
     <mat-label>Brutto leieinntekter /mnd</mat-label>
-    <input matInput type="number" placeholder="0" [(ngModel)]="rentalIncome" />
+    <input matInput type="number" placeholder="0" [(ngModel)]="rentalIncome" (input)="rentalIncomeChanged($event.target)" />
     <span matTextSuffix>Kr</span>
   </mat-form-field>
 </div>

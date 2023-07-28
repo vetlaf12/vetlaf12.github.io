@@ -9,11 +9,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatTableModule } from '@angular/material/table';
-import { NgFor } from '@angular/common';
+import { NgFor, NgIf } from '@angular/common';
 
 import { FormsModule } from '@angular/forms';
 import { PriceCalculationTableComponent } from './price-calculation-table/price-calculation-table.component';
 import { HousePriceCalculatorComponent } from './house-price-calculator/house-price-calculator.component';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -31,6 +33,9 @@ import { HousePriceCalculatorComponent } from './house-price-calculator/house-pr
     FormsModule,
     MatTableModule,
     NgFor,
+    MatButtonModule,
+    NgIf,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent],
