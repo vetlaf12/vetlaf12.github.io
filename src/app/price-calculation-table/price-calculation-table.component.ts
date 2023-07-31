@@ -1,22 +1,19 @@
-import {Component, Input, OnChanges, SimpleChanges} from '@angular/core';
-import {animate, state, style, transition, trigger} from '@angular/animations';
-import {MatIconModule} from '@angular/material/icon';
-import {MatButtonModule} from '@angular/material/button';
-import {NgFor, NgIf} from '@angular/common';
-import {MatTableModule} from '@angular/material/table';
+import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { animate, state, style, transition, trigger } from '@angular/animations';
+import { PeriodicElement } from '../house-rental-price-calculator.service';
 
-/**
- * @title Table with expandable rows
- */
 @Component({
   selector: 'app-price-calculation-table',
-   templateUrl: './price-calculation-table.component.html',
-   styleUrls: ['./price-calculation-table.component.css'],
+  templateUrl: './price-calculation-table.component.html',
+  styleUrls: ['./price-calculation-table.component.css'],
   animations: [
     trigger('detailExpand', [
-      state('collapsed', style({height: '0px', minHeight: '0'})),
-      state('expanded', style({height: '*'})),
-      transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')),
+      state('collapsed', style({ height: '0px', minHeight: '0' })),
+      state('expanded', style({ height: '*' })),
+      transition(
+        'expanded <=> collapsed',
+        animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')
+      ),
     ]),
   ],
 })
@@ -25,50 +22,48 @@ export class PriceCalculationTableComponent implements OnChanges {
   ngOnChanges(changes: SimpleChanges) {
     this.dataSource = this.periodValues;
   }
-  
+
   dataSource = this.periodValues;
 
   columns = [
     {
-      columnDef: 'år',
+      columnDef: 'year',
       header: 'År',
       cell: (element: PeriodicElement) => `${element.year}`,
     },
     {
-      columnDef: 'boligverdi',
+      columnDef: 'hosevalue',
       header: 'Boligverdi',
       cell: (element: PeriodicElement) => `${Math.floor(element.houseValue)}`,
     },
     {
-      columnDef: 'felleskostnader',
-      header: 'Felleskostnader',
-      cell: (element: PeriodicElement) => `${Math.floor(element.monthlyJointCosts)}`,
+      columnDef: 'mortgageAmount',
+      header: 'Gjeld',
+      cell: (element: PeriodicElement) => `${Math.floor(element.mortgageAmount)}`,
     },
     {
-      columnDef: 'leieinntekter',
+      columnDef: 'termAmount',
+      header: 'Terminbeløp',
+      cell: (element: PeriodicElement) => `${Math.floor(element.termAmount)}`,
+    },
+    {
+      columnDef: 'variousExpenses',
+      header: 'Kostnader',
+      cell: (element: PeriodicElement) => `${Math.floor(element.variousExpenses)}`,
+    },
+    {
+      columnDef: 'rentalincome',
       header: 'Leieinntekter',
       cell: (element: PeriodicElement) => `${Math.floor(element.rentalIncome)}`,
+    },
+    {
+      columnDef: 'cashflow',
+      header: 'Kontantstrøm',
+      cell: (element: PeriodicElement) => `${Math.floor(element.cashFlow)}`,
     },
   ];
 
   columnsToDisplay = this.columns.map((c) => c.columnDef);
   columnsToDisplayWithExpand = [...this.columnsToDisplay, 'expand'];
   expandedElement: PeriodicElement | null = null;
-
-    
 }
-
-export interface PeriodicElement {
-  year: number;
-  houseValue: number;
-  rentalIncome: number;
-  monthlyJointCosts: number;
-  expandableMonthValues: MonthPeriodicElement[];
-}
-
-export interface MonthPeriodicElement {
-  month: string,
-}
-
-
-

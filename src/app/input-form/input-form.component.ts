@@ -48,6 +48,18 @@ export class InputFormComponent {
     this.change.emit(inputElement);
   }
 
+  mortgageAmountChanged(target: EventTarget | null){
+    this.mortgageAmount = Number((target as HTMLInputElement).value);
+    let inputElement: InputElement = this.getCurrentInputFields();
+    this.change.emit(inputElement);
+  }
+
+  loanInterestChanged(target: EventTarget | null){
+    this.loanInterest = Number((target as HTMLInputElement).value);
+    let inputElement: InputElement = this.getCurrentInputFields();
+    this.change.emit(inputElement);
+  }
+
   getCurrentInputFields(): InputElement {
     let inputElement: InputElement = {
       houseValue: this.houseValue,

@@ -18,6 +18,7 @@
       type="number"
       placeholder="0"
       [(ngModel)]="mortgageAmount"
+      (input)="mortgageAmountChanged($event.target)"
     />
     <span matTextSuffix>Kr</span>
   </mat-form-field>
@@ -41,6 +42,7 @@
       type="number"
       placeholder="Rente på lån"
       [(ngModel)]="loanInterest"
+      (input)="loanInterestChanged($event.target)"
     />
     <span matTextSuffix>%</span>
   </mat-form-field>
