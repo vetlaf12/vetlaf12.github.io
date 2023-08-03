@@ -1,4 +1,16 @@
-.flex-container {
+.flex-financial {
+  justify-content: center;
+  display: flex;
+  margin-top: 1%;
+}
+
+.flex-costs {
+  justify-content: center;
+  display: flex;
+  margin-top: 1%;
+}
+
+.flex-revenues {
   justify-content: center;
   display: flex;
   margin-top: 1%;

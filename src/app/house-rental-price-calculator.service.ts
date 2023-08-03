@@ -9,6 +9,7 @@ export class HouseRentalPriceCalculatorService {
   startMonth: number;
   endMonth: number;
   outstandingLoan: number = 0;
+  totalMortgageAmount: number = 0;
 
 
   constructor() {
@@ -25,17 +26,23 @@ export class HouseRentalPriceCalculatorService {
     repaymentPeriodYears: number,
     yearlyConsumerPriceFactor: number,
     monthlyJointCosts: number,
+    tvAndInternetCosts: number,
+    insuranceCosts: number,
+    yearlyMunicipalTaxes: number,
     loanInterest: number,
-    mortgageAmount: number
+    mortgageAmount: number,
+    vacancyRate: number
   ): PeriodicElement[] {
     //todo: validate input values
 
     this.paymentPeriodCompleteYear = this.repaymentStartYear + repaymentPeriodYears;
     let updatedPeriodValues: PeriodicElement[] = [];
     this.outstandingLoan = mortgageAmount;
+    this.totalMortgageAmount = mortgageAmount;
     let houseValue = housingPrice;
-    let rentalIncome = monthlyRentalIncome;
+    let rentalIncome = monthlyRentalIncome - (monthlyRentalIncome * vacancyRate) / 100;
     let totalTerms = repaymentPeriodYears * 12;
+    let monthlyMunicipalTaxes = yearlyMunicipalTaxes / 12;
     if (repaymentPeriodYears > 0) {
       for (let year = this.repaymentStartYear; year <= this.paymentPeriodCompleteYear; year++) {
         if (year != this.repaymentStartYear) {
@@ -46,6 +53,9 @@ export class HouseRentalPriceCalculatorService {
         let monthValues = this.getMonthValues(
           year,
           monthlyJointCosts,
+          tvAndInternetCosts,
+          insuranceCosts,
+          monthlyMunicipalTaxes,
           houseValue,
           yearlyConsumerPriceFactor,
           rentalIncome,
@@ -66,7 +76,8 @@ export class HouseRentalPriceCalculatorService {
           expandableMonthValues: monthValues,
           cashFlow: cashFlow,
           mortgageAmount: this.outstandingLoan,
-          termAmount: termAmount
+          termAmount: termAmount,
+          unrealizedCapital: houseValue - this.outstandingLoan
         };
 
         updatedPeriodValues.push(periodValue);
@@ -78,6 +89,9 @@ export class HouseRentalPriceCalculatorService {
   getMonthValues(
     year: number,
     monthlyJointCosts: number,
+    tvAndInternetCosts: number,
+    insuranceCosts: number,
+    monthlyMunicipalTaxes: number,
     periodStartHousingValue: number,
     yearlyConsumerPriceFactor: number,
     monthlyRentalIncome: number,
@@ -87,8 +101,6 @@ export class HouseRentalPriceCalculatorService {
     let termAmountForMonth = 0;
     let monthlyLoanInterest = loanInterest / 12;
     let loanInterestDecimal = monthlyLoanInterest / 100;
-    let interestAmountForMonth = 0;
-    let outstandingLoan = this.outstandingLoan;
     let installment = 0;
     
     
@@ -98,23 +110,25 @@ export class HouseRentalPriceCalculatorService {
     let monthValues: MonthPeriodicElement[] = [];
     let months: string[] = ['Jan','Feb','Mar','Apr','Mai','Jun','Jul','Aug','Sep','Okt','Nov','Des',];
     for (let i = 0; i < months.length; i++) {
-      let variousExpenses = monthlyJointCosts;
-      console.log('this.endMonth: ',this.endMonth);
-      console.log('this.paymentPeriodCompleteYear', this.paymentPeriodCompleteYear);
+      let variousExpenses = monthlyJointCosts + tvAndInternetCosts + insuranceCosts + monthlyMunicipalTaxes;
       if ((i < this.startMonth && year == this.repaymentStartYear) || (i > this.endMonth && year == this.paymentPeriodCompleteYear)) continue;
       if (i != 0) { monthHousingValue = monthHousingValue + (monthHousingValue * monthlyConsumerPriceFactor) / 100;}
 
-      termAmountForMonth = outstandingLoan * loanInterestDecimal * (((1 + loanInterestDecimal) ** totalTerms)/((1 + loanInterestDecimal) ** totalTerms - 1));
-
+      termAmountForMonth = this.totalMortgageAmount * loanInterestDecimal * (((1 + loanInterestDecimal) ** totalTerms)/((1 + loanInterestDecimal) ** totalTerms - 1));
+      let interestAmountForMonth = this.outstandingLoan * loanInterestDecimal;
+      installment = termAmountForMonth - interestAmountForMonth;
+      this.outstandingLoan = this.outstandingLoan - installment;
       let monthValue: MonthPeriodicElement = {
         month: months[i],
-        variousExpenses: variousExpenses,
+        variousExpenses: Math.floor(variousExpenses),
         housingValue: Math.floor(monthHousingValue),
         rentalIncome: Math.floor(monthlyRentalIncome),
-        outstandingLoan: Math.floor(outstandingLoan),
+        outstandingLoan: Math.floor(this.outstandingLoan),
         termAmountForMonth: Math.floor(termAmountForMonth),
         interestAmount: interestAmountForMonth, //renter
-        installment: installment//avdrag
+        installment: installment,//avdrag,
+        unrealizedCapital: Math.floor(monthHousingValue - this.outstandingLoan),
+        cashFlow: Math.floor(monthlyRentalIncome - termAmountForMonth - variousExpenses)
       };
       monthValues.push(monthValue);
     }
@@ -134,6 +148,7 @@ export interface PeriodicElement {
   variousExpenses: number;
   rentalIncome: number;
   cashFlow: number;
+  unrealizedCapital: number;
   expandableMonthValues: MonthPeriodicElement[];
 }
 
@@ -146,4 +161,6 @@ export interface MonthPeriodicElement {
   variousExpenses: number;
   rentalIncome: number;
   termAmountForMonth: number;
+  unrealizedCapital: number;
+  cashFlow: number;
 }

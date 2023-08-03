@@ -1,4 +1,6 @@
-<div class="flex-container">
+
+<div class="flex-financial">
+  <div>Finansiering:</div>
   <mat-form-field appearance="outline" class="input-field">
     <mat-label>Boligverdi</mat-label>
     <input
@@ -46,7 +48,9 @@
     />
     <span matTextSuffix>%</span>
   </mat-form-field>
+</div>
 
+<div class="flex-costs">
   <mat-form-field appearance="outline" class="input-field">
     <mat-label>Felleskostnader /mnd</mat-label>
     <input
@@ -60,8 +64,54 @@
   </mat-form-field>
 
   <mat-form-field appearance="outline" class="input-field">
+    <mat-label>Kommunale avg. /år</mat-label>
+    <input
+      matInput
+      type="number"
+      placeholder="0"
+      [(ngModel)]="yearlyMunicipalTaxes"
+      (input)="yearlyMunicipalTaxesChanged($event.target)"
+    />
+    <span matTextSuffix>Kr</span>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="input-field">
+    <mat-label>TV og Internett</mat-label>
+    <input
+      matInput
+      type="number"
+      placeholder="0"
+      [(ngModel)]="tvAndInternetCosts"
+      (input)="tvAndInternetCostsChanged($event.target)"
+    />
+    <span matTextSuffix>Kr</span>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="input-field">
+    <mat-label>Forsikring</mat-label>
+    <input
+      matInput
+      type="number"
+      placeholder="0"
+      [(ngModel)]="insuranceCosts"
+      (input)="insuranceCostsChanged($event.target)"
+    />
+    <span matTextSuffix>Kr</span>
+  </mat-form-field>
+</div>
+
+<div class="flex-revenues">
+  <mat-form-field appearance="outline" class="input-field">
     <mat-label>Brutto leieinntekter /mnd</mat-label>
     <input matInput type="number" placeholder="0" [(ngModel)]="rentalIncome" (input)="rentalIncomeChanged($event.target)" />
     <span matTextSuffix>Kr</span>
   </mat-form-field>
+
+  <mat-form-field appearance="outline" class="input-field">
+    <mat-label>Ledighetsrate</mat-label>
+    <input matInput type="number" placeholder="0" [(ngModel)]="vacancyRate" (input)="vacancyRateChanged($event.target)" />
+    <span matTextSuffix>%</span>
+  </mat-form-field>
 </div>
+
+

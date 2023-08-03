@@ -32,7 +32,7 @@ export class PriceCalculationTableComponent implements OnChanges {
       cell: (element: PeriodicElement) => `${element.year}`,
     },
     {
-      columnDef: 'hosevalue',
+      columnDef: 'houseValue',
       header: 'Boligverdi',
       cell: (element: PeriodicElement) => `${Math.floor(element.houseValue)}`,
     },
@@ -60,6 +60,11 @@ export class PriceCalculationTableComponent implements OnChanges {
       columnDef: 'cashflow',
       header: 'Kontantstrøm',
       cell: (element: PeriodicElement) => `${Math.floor(element.cashFlow)}`,
+    },
+    {
+      columnDef: 'unrealizedCapital',
+      header: 'Urealisert kapital',
+      cell: (element: PeriodicElement) => `${Math.floor(element.unrealizedCapital)}`,
     },
   ];
 

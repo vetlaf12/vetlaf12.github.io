@@ -20,7 +20,11 @@ export class HousePriceCalculatorComponent {
   houseValue: number = 0;
   rentalIncome: number = 0;
   monthlyJointCosts: number = 0;
+  tvAndInternetCosts: number = 0;
+  insuranceCosts: number = 0;
+  yearlyMunicipalTaxes: number = 0;
   mortgageAmount: number = 0;
+  vacancyRate: number = 0;
   yearlyConsumerPriceFactor = 2;
   loanInterest: number = 0;
   periodValues: PeriodicElement[] = [];
@@ -38,11 +42,23 @@ export class HousePriceCalculatorComponent {
     if (typeof value.monthlyJointCosts === 'number') {
       this.monthlyJointCosts = value.monthlyJointCosts;
     }
+    if (typeof value.tvAndInternetCosts === 'number') {
+      this.tvAndInternetCosts = value.tvAndInternetCosts;
+    }
+    if (typeof value.insuranceCosts === 'number') {
+      this.insuranceCosts = value.insuranceCosts;
+    }
+    if (typeof value.yearlyMunicipalTaxes === 'number') {
+      this.yearlyMunicipalTaxes = value.yearlyMunicipalTaxes;
+    }
     if(typeof value.mortgageAmount === 'number') {
       this.mortgageAmount = value.mortgageAmount;
     }
     if(typeof value.loanInterest === 'number') {
       this.loanInterest = value.loanInterest;
+    }
+    if(typeof value.vacancyRate === 'number') {
+      this.vacancyRate = value.vacancyRate;
     }
 
     this.periodValues = this.houseRentalPriceCalculationService.recalculate(
@@ -51,8 +67,12 @@ export class HousePriceCalculatorComponent {
       this.repaymentPeriod,
       this.yearlyConsumerPriceFactor,
       this.monthlyJointCosts,
+      this.tvAndInternetCosts,
+      this.insuranceCosts,
+      this.yearlyMunicipalTaxes,
       this.loanInterest,
-      this.mortgageAmount
+      this.mortgageAmount,
+      this.vacancyRate
     );
   }
 }

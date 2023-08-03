@@ -7,6 +7,10 @@ export interface InputElement {
   loanInterest: number;
   monthlyJointCosts: number;
   rentalIncome: number;
+  tvAndInternetCosts: number;
+  insuranceCosts: number;
+  yearlyMunicipalTaxes: number;
+  vacancyRate: number;
 }
 
 @Component({
@@ -19,6 +23,10 @@ export class InputFormComponent {
   mortgageAmount: number = 0;
   repaymentPeriod: number = 0;
   loanInterest: number = 0;
+  tvAndInternetCosts: number = 0;
+  insuranceCosts: number = 0;
+  yearlyMunicipalTaxes: number = 0;
+  vacancyRate: number = 0;
   monthlyJointCosts: number = 0;
   rentalIncome: number = 0;
 
@@ -60,6 +68,31 @@ export class InputFormComponent {
     this.change.emit(inputElement);
   }
 
+  tvAndInternetCostsChanged(target: EventTarget | null){
+    this.tvAndInternetCosts = Number((target as HTMLInputElement).value);
+    let inputElement: InputElement = this.getCurrentInputFields();
+    this.change.emit(inputElement);
+  }
+
+  insuranceCostsChanged(target: EventTarget | null){
+    this.insuranceCosts = Number((target as HTMLInputElement).value);
+    let inputElement: InputElement = this.getCurrentInputFields();
+    this.change.emit(inputElement);
+  }
+
+  yearlyMunicipalTaxesChanged(target: EventTarget | null){
+    this.yearlyMunicipalTaxes = Number((target as HTMLInputElement).value);
+    let inputElement: InputElement = this.getCurrentInputFields();
+    this.change.emit(inputElement);
+  }
+
+  vacancyRateChanged(target: EventTarget | null){
+    this.vacancyRate = Number((target as HTMLInputElement).value);
+    let inputElement: InputElement = this.getCurrentInputFields();
+    this.change.emit(inputElement);
+  }
+  
+
   getCurrentInputFields(): InputElement {
     let inputElement: InputElement = {
       houseValue: this.houseValue,
@@ -68,6 +101,10 @@ export class InputFormComponent {
       monthlyJointCosts: this.monthlyJointCosts,
       rentalIncome: this.rentalIncome,
       repaymentPeriod: this.repaymentPeriod,
+      tvAndInternetCosts: this.tvAndInternetCosts,
+      insuranceCosts: this.insuranceCosts,
+      yearlyMunicipalTaxes: this.yearlyMunicipalTaxes,
+      vacancyRate: this.vacancyRate
     };
     return inputElement;
   }

@@ -29,17 +29,19 @@ tr.example-element-row:not(.example-expanded-row):active {
 }
 
 .row-child-element {
+  width: 11.5%; 
   flex: 1;
   padding: 0 16px 0 16px;
 }
 
 .row-child-element-first {
+  width: 11%;
   flex: 1;
   padding: 0 16px 0 0px;
 }
 
 .row-child-element-last {
-  flex: 1;
+  flex: 0.27;
   padding: 0 0px 0 16px;
 }
 
@@ -63,8 +65,8 @@ tr.example-element-row:not(.example-expanded-row):active {
 .mat-column-year {
   word-wrap: break-word !important;
   white-space: unset !important;
-  flex: 0 0 28% !important;
-  width: 17% !important;
+  flex: 0 0 auto !important;
+  width: 12% !important;
   overflow-wrap: break-word;
   word-wrap: break-word;
 
@@ -76,11 +78,11 @@ tr.example-element-row:not(.example-expanded-row):active {
   hyphens: auto;
 }
 
-.mat-column-housevalue {
+.mat-column-houseValue {
   word-wrap: break-word !important;
   white-space: unset !important;
-  flex: 0 0 28% !important;
-  width: 17% !important;
+  flex: 0 0 auto !important;
+  width: 12% !important;
   overflow-wrap: break-word;
   word-wrap: break-word;
 
@@ -95,8 +97,8 @@ tr.example-element-row:not(.example-expanded-row):active {
 .mat-column-mortgageAmount {
   word-wrap: break-word !important;
   white-space: unset !important;
-  flex: 0 0 28% !important;
-  width: 17% !important;
+  flex: 0 0 auto !important;
+  width: 12% !important;
   overflow-wrap: break-word;
   word-wrap: break-word;
 
@@ -111,8 +113,8 @@ tr.example-element-row:not(.example-expanded-row):active {
 .mat-column-termAmount {
   word-wrap: break-word !important;
   white-space: unset !important;
-  flex: 0 0 28% !important;
-  width: 17% !important;
+  flex: 0 0 auto !important;
+  width: 12% !important;
   overflow-wrap: break-word;
   word-wrap: break-word;
 
@@ -127,8 +129,8 @@ tr.example-element-row:not(.example-expanded-row):active {
 .mat-column-variousExpenses {
   word-wrap: break-word !important;
   white-space: unset !important;
-  flex: 0 0 28% !important;
-  width: 17% !important;
+  flex: 0 0 auto !important;
+  width: 12% !important;
   overflow-wrap: break-word;
   word-wrap: break-word;
 
@@ -143,8 +145,8 @@ tr.example-element-row:not(.example-expanded-row):active {
 .mat-column-rentalincome {
   word-wrap: break-word !important;
   white-space: unset !important;
-  flex: 0 0 28% !important;
-  width: 17% !important;
+  flex: 0 0 auto !important;
+  width: 12% !important;
   overflow-wrap: break-word;
   word-wrap: break-word;
 
@@ -159,8 +161,24 @@ tr.example-element-row:not(.example-expanded-row):active {
 .mat-column-cashflow {
   word-wrap: break-word !important;
   white-space: unset !important;
-  flex: 0 0 28% !important;
-  width: 17% !important;
+  flex: 0 0 auto !important;
+  width: 12% !important;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+
+  word-break: break-word;
+
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+
+.mat-column-unrealizedCapital {
+  word-wrap: break-word !important;
+  white-space: unset !important;
+  flex: 0 0 auto !important;
+  width: 12% !important;
   overflow-wrap: break-word;
   word-wrap: break-word;
 
@@ -175,8 +193,8 @@ tr.example-element-row:not(.example-expanded-row):active {
 .mat-column-expand {
   word-wrap: break-word !important;
   white-space: unset !important;
-  flex: 0 0 28% !important;
-  width: 15% !important;
+  flex: 0 0 auto !important;
+  width: 8% !important;
   overflow-wrap: break-word;
   word-wrap: break-word;
 
@@ -186,4 +204,19 @@ tr.example-element-row:not(.example-expanded-row):active {
   -moz-hyphens: auto;
   -webkit-hyphens: auto;
   hyphens: auto;
+}
+
+
+.flex-table {
+  width: 100%;
+  display: flex !important;
+  flex-direction: column;
+}
+
+.mat-header-row, .mat-row {
+  display: flex;
+}
+
+.mat-header-cell, .mat-cell {
+  flex: 1;
 }
