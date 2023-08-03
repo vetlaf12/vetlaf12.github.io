@@ -1,19 +1,32 @@
 .flex-financial {
   justify-content: center;
   display: flex;
+}
+
+.flex-financial-header {
   margin-top: 1%;
+  justify-content: center;
+  display: flex;
 }
 
 .flex-costs {
   justify-content: center;
   display: flex;
-  margin-top: 1%;
+}
+
+.flex-costs-header {
+  justify-content: center;
+  display: flex;
 }
 
 .flex-revenues {
   justify-content: center;
   display: flex;
-  margin-top: 1%;
+}
+
+.flex-revenues-header {
+  justify-content: center;
+  display: flex;
 }
 
 .input-field {
