@@ -25,8 +25,10 @@ export class HousePriceCalculatorComponent {
   yearlyMunicipalTaxes: number = 0;
   mortgageAmount: number = 0;
   vacancyRate: number = 0;
+  takeoverCosts: number = 0;
   yearlyConsumerPriceFactor = 2;
   loanInterest: number = 0;
+  propertyTax: number = 0;
   periodValues: PeriodicElement[] = [];
 
   inputFieldsChanged(value: InputElement) {
@@ -60,6 +62,13 @@ export class HousePriceCalculatorComponent {
     if(typeof value.vacancyRate === 'number') {
       this.vacancyRate = value.vacancyRate;
     }
+    if(typeof value.takeoverCosts === 'number') {
+      this.takeoverCosts = value.takeoverCosts;
+    }
+    if(typeof value.propertyTax === 'number') {
+      this.propertyTax = value.propertyTax;
+    }
+    
 
     this.periodValues = this.houseRentalPriceCalculationService.recalculate(
       this.houseValue,
@@ -72,7 +81,9 @@ export class HousePriceCalculatorComponent {
       this.yearlyMunicipalTaxes,
       this.loanInterest,
       this.mortgageAmount,
-      this.vacancyRate
+      this.vacancyRate,
+      this.takeoverCosts,
+      this.propertyTax
     );
   }
 }

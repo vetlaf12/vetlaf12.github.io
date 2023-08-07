@@ -46,16 +46,18 @@
         >
           <div
             class="row-element"
-            [@detailExpand]="
-              element == expandedElement ? 'expanded' : 'collapsed'
-            "
+            [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'"
           >
             <td class="row-child-element-first">{{ monthValue.month }}</td>
             <td class="row-child-element">{{ monthValue.housingValue }}</td>
             <td class="row-child-element">{{ monthValue.outstandingLoan }}</td>
             <td class="row-child-element">{{ monthValue.termAmountForMonth }}</td>
+            <td class="row-child-element">{{ monthValue.installment }}</td>
+            <td class="row-child-element">{{ monthValue.interestAmount }}</td>
+            <td class="row-child-element">{{ monthValue.taxDeduction }}</td>
             <td class="row-child-element">{{ monthValue.variousExpenses }}</td>
             <td class="row-child-element">{{ monthValue.rentalIncome }}</td>
+            <td class="row-child-element">{{ monthValue.tax }}</td>
             <td class="row-child-element">{{ monthValue.cashFlow }}</td>
             <td class="row-child-element">{{ monthValue.unrealizedCapital }}</td>
             <td class="row-child-element-last"></td>

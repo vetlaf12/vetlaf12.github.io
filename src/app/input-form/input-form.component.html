@@ -14,6 +14,18 @@
   </mat-form-field>
 
   <mat-form-field appearance="outline" class="input-field">
+    <mat-label>Omkostninger</mat-label>
+    <input
+      matInput
+      type="number"
+      placeholder="0"
+      [(ngModel)]="takeoverCosts"
+      (input)="takeoverCostsChanged($event.target)"
+    />
+    <span matTextSuffix>Kr</span>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="input-field">
     <mat-label>Lånebeløp</mat-label>
     <input
       matInput
@@ -72,6 +84,18 @@
       placeholder="0"
       [(ngModel)]="yearlyMunicipalTaxes"
       (input)="yearlyMunicipalTaxesChanged($event.target)"
+    />
+    <span matTextSuffix>Kr</span>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="input-field">
+    <mat-label>Eiendomsskatt /år</mat-label>
+    <input
+      matInput
+      type="number"
+      placeholder="0"
+      [(ngModel)]="propertyTax"
+      (input)="propertyTaxChanged($event.target)"
     />
     <span matTextSuffix>Kr</span>
   </mat-form-field>

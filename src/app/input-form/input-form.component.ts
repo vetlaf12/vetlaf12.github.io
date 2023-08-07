@@ -11,6 +11,8 @@ export interface InputElement {
   insuranceCosts: number;
   yearlyMunicipalTaxes: number;
   vacancyRate: number;
+  takeoverCosts: number;
+  propertyTax: number;
 }
 
 @Component({
@@ -29,6 +31,8 @@ export class InputFormComponent {
   vacancyRate: number = 0;
   monthlyJointCosts: number = 0;
   rentalIncome: number = 0;
+  takeoverCosts: number = 0;
+  propertyTax: number = 0;
 
   @Output() change = new EventEmitter<InputElement>();
 
@@ -91,6 +95,18 @@ export class InputFormComponent {
     let inputElement: InputElement = this.getCurrentInputFields();
     this.change.emit(inputElement);
   }
+
+  takeoverCostsChanged(target: EventTarget | null){
+    this.takeoverCosts = Number((target as HTMLInputElement).value);
+    let inputElement: InputElement = this.getCurrentInputFields();
+    this.change.emit(inputElement);
+  }
+
+  propertyTaxChanged(target: EventTarget | null){
+    this.propertyTax = Number((target as HTMLInputElement).value);
+    let inputElement: InputElement = this.getCurrentInputFields();
+    this.change.emit(inputElement);
+  }
   
 
   getCurrentInputFields(): InputElement {
@@ -104,7 +120,9 @@ export class InputFormComponent {
       tvAndInternetCosts: this.tvAndInternetCosts,
       insuranceCosts: this.insuranceCosts,
       yearlyMunicipalTaxes: this.yearlyMunicipalTaxes,
-      vacancyRate: this.vacancyRate
+      vacancyRate: this.vacancyRate,
+      takeoverCosts: this.takeoverCosts,
+      propertyTax: this.propertyTax
     };
     return inputElement;
   }

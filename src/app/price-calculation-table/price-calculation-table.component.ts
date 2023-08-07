@@ -47,6 +47,21 @@ export class PriceCalculationTableComponent implements OnChanges {
       cell: (element: PeriodicElement) => `${Math.floor(element.termAmount)}`,
     },
     {
+      columnDef: 'installment',
+      header: 'Avdrag',
+      cell: (element: PeriodicElement) => `${Math.floor(element.installment)}`,
+    },
+    {
+      columnDef: 'interestAmount',
+      header: 'Renter',
+      cell: (element: PeriodicElement) => `${Math.floor(element.interestAmount)}`,
+    },
+    {
+      columnDef: 'taxDeduction',
+      header: 'Fradrag skatt',
+      cell: (element: PeriodicElement) => `${Math.floor(element.taxDeduction)}`,
+    },
+    {
       columnDef: 'variousExpenses',
       header: 'Kostnader',
       cell: (element: PeriodicElement) => `${Math.floor(element.variousExpenses)}`,
@@ -57,6 +72,11 @@ export class PriceCalculationTableComponent implements OnChanges {
       cell: (element: PeriodicElement) => `${Math.floor(element.rentalIncome)}`,
     },
     {
+      columnDef: 'tax',
+      header: 'Skatt',
+      cell: (element: PeriodicElement) => `${Math.floor(element.tax)}`,
+    },
+    {
       columnDef: 'cashflow',
       header: 'Kontantstrøm',
       cell: (element: PeriodicElement) => `${Math.floor(element.cashFlow)}`,
@@ -65,6 +85,21 @@ export class PriceCalculationTableComponent implements OnChanges {
       columnDef: 'unrealizedCapital',
       header: 'Urealisert kapital',
       cell: (element: PeriodicElement) => `${Math.floor(element.unrealizedCapital)}`,
+    },
+    {
+      columnDef: 'netProfit',
+      header: 'Netto fortjeneste',
+      cell: (element: PeriodicElement) => `${Math.floor(element.netProfit)}`,
+    },
+    {
+      columnDef: 'totalProfit',
+      header: 'Total fortjeneste',
+      cell: (element: PeriodicElement) => `${Math.floor(element.totalProfit)}`,
+    },
+    {
+      columnDef: 'returnOnInvestment',
+      header: 'ROI',
+      cell: (element: PeriodicElement) => `${Math.floor(element.returnOnInvestment)}`,
     },
   ];
 
