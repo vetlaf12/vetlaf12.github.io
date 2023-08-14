@@ -8,9 +8,9 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-
-      - name: Run Super-Linter
-        uses: github/super-linter@v4
-        env:
-          DEFAULT_BRANCH: main
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: Clean Distribution Directory
+        run: npm run ci:clean
+        
+      - name: Build Application
+        run: npm run ci:build
