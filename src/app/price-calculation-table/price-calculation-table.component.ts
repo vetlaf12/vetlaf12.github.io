@@ -82,24 +82,19 @@ export class PriceCalculationTableComponent implements OnChanges {
       cell: (element: PeriodicElement) => `${Math.floor(element.cashFlow)}`,
     },
     {
-      columnDef: 'unrealizedCapital',
-      header: 'Urealisert kapital',
-      cell: (element: PeriodicElement) => `${Math.floor(element.unrealizedCapital)}`,
-    },
-    {
       columnDef: 'netProfit',
       header: 'Netto fortjeneste',
       cell: (element: PeriodicElement) => `${Math.floor(element.netProfit)}`,
     },
     {
-      columnDef: 'totalProfit',
-      header: 'Total fortjeneste',
-      cell: (element: PeriodicElement) => `${Math.floor(element.totalProfit)}`,
+      columnDef: 'unrealizedCapital',
+      header: 'Urealisert kapital',
+      cell: (element: PeriodicElement) => `${Math.floor(element.unrealizedCapital)}`,
     },
     {
-      columnDef: 'returnOnInvestment',
-      header: 'ROI',
-      cell: (element: PeriodicElement) => `${Math.floor(element.returnOnInvestment)}`,
+      columnDef: 'netYield',
+      header: 'Netto Yield',
+      cell: (element: PeriodicElement) => `${Math.floor(element.netYield)}`,
     },
   ];
 

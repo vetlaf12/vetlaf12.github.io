@@ -34,7 +34,7 @@
 
   <ng-container matColumnDef="expandedDetail">
     <td
-      mat-cell
+      
       *matCellDef="let element"
       [attr.colspan]="columnsToDisplayWithExpand.length"
     >
@@ -48,19 +48,21 @@
             class="row-element"
             [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'"
           >
-            <td class="row-child-element-first">{{ monthValue.month }}</td>
-            <td class="row-child-element">{{ monthValue.housingValue }}</td>
-            <td class="row-child-element">{{ monthValue.outstandingLoan }}</td>
-            <td class="row-child-element">{{ monthValue.termAmountForMonth }}</td>
-            <td class="row-child-element">{{ monthValue.installment }}</td>
-            <td class="row-child-element">{{ monthValue.interestAmount }}</td>
-            <td class="row-child-element">{{ monthValue.taxDeduction }}</td>
-            <td class="row-child-element">{{ monthValue.variousExpenses }}</td>
-            <td class="row-child-element">{{ monthValue.rentalIncome }}</td>
-            <td class="row-child-element">{{ monthValue.tax }}</td>
-            <td class="row-child-element">{{ monthValue.cashFlow }}</td>
-            <td class="row-child-element">{{ monthValue.unrealizedCapital }}</td>
-            <td class="row-child-element-last"></td>
+            <td class="mat-column-year">{{ monthValue.month }}</td>
+            <td class="mat-column-houseValue">{{ monthValue.housingValue }}</td>
+            <td class="mat-column-mortgageAmount">{{ monthValue.outstandingLoan }}</td>
+            <td class="mat-column-termAmount">{{ monthValue.termAmountForMonth }}</td>
+            <td class="mat-column-installment">{{ monthValue.installment }}</td>
+            <td class="mat-column-interestAmount">{{ monthValue.interestAmount }}</td>
+            <td class="mat-column-taxDeduction">{{ monthValue.taxDeduction }}</td>
+            <td class="mat-column-variousExpenses">{{ monthValue.variousExpenses }}</td>
+            <td class="mat-column-rentalincome">{{ monthValue.rentalIncome }}</td>
+            <td class="mat-column-tax">{{ monthValue.tax }}</td>
+            <td class="mat-column-cashflow">{{ monthValue.cashFlow }}</td>
+            <td class="mat-column-netProfit">{{ monthValue.netProfit }}</td>
+            <td class="mat-column-unrealizedCapital">{{ monthValue.unrealizedCapital }}</td>
+            <td class="mat-column-netYield">{{ monthValue.netYield }}</td>
+            <td class="mat-column-expand"></td>
           </div>
         </tr>
       </table>
