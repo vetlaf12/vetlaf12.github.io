@@ -2,15 +2,25 @@ name: GitHub Actions Demo
 run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 on: [push]
 jobs:
-  super-lint:
-    name: Lint code base
+  build:
+    name: All Steps (Build, Test & Deploy)
     runs-on: ubuntu-latest
+
     strategy:
       matrix:
-        node-version: [12.x]
+        node-version: [20.x]
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+
+      - name: Cache node modules
+        uses: actions/cache@v1
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
 
       - name: Setup Node.js environment
         uses: actions/setup-node@v1.4.2
