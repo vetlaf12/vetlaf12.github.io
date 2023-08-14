@@ -94,7 +94,7 @@ export class PriceCalculationTableComponent implements OnChanges {
     {
       columnDef: 'netYield',
       header: 'Netto Yield',
-      cell: (element: PeriodicElement) => `${Math.floor(element.netYield)}`,
+      cell: (element: PeriodicElement) => `${Math.floor(element.netYield)} %`,
     },
   ];
 

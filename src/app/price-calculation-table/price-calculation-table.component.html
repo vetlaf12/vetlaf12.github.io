@@ -34,11 +34,11 @@
 
   <ng-container matColumnDef="expandedDetail">
     <td
-      
+      style="width: 100%; padding: 0px;"
       *matCellDef="let element"
       [attr.colspan]="columnsToDisplayWithExpand.length"
     >
-      <table>
+      <table style="width: 100% !important;">
         <tr
           *ngFor="let monthValue of element.expandableMonthValues"
           class="detail-row"
@@ -48,21 +48,21 @@
             class="row-element"
             [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'"
           >
-            <td class="mat-column-year">{{ monthValue.month }}</td>
-            <td class="mat-column-houseValue">{{ monthValue.housingValue }}</td>
-            <td class="mat-column-mortgageAmount">{{ monthValue.outstandingLoan }}</td>
-            <td class="mat-column-termAmount">{{ monthValue.termAmountForMonth }}</td>
-            <td class="mat-column-installment">{{ monthValue.installment }}</td>
-            <td class="mat-column-interestAmount">{{ monthValue.interestAmount }}</td>
-            <td class="mat-column-taxDeduction">{{ monthValue.taxDeduction }}</td>
-            <td class="mat-column-variousExpenses">{{ monthValue.variousExpenses }}</td>
-            <td class="mat-column-rentalincome">{{ monthValue.rentalIncome }}</td>
-            <td class="mat-column-tax">{{ monthValue.tax }}</td>
-            <td class="mat-column-cashflow">{{ monthValue.cashFlow }}</td>
-            <td class="mat-column-netProfit">{{ monthValue.netProfit }}</td>
-            <td class="mat-column-unrealizedCapital">{{ monthValue.unrealizedCapital }}</td>
-            <td class="mat-column-netYield">{{ monthValue.netYield }}</td>
-            <td class="mat-column-expand"></td>
+            <td style="width: 6.8%; padding-left: 16px; padding-right: 16px;">{{ monthValue.month }}</td>
+            <td style="width: 6.8%; padding-left: 16px; padding-right: 16px;">{{ monthValue.housingValue }}</td>
+            <td style="width: 6.8%; padding-left: 16px; padding-right: 16px;">{{ monthValue.outstandingLoan }}</td>
+            <td style="width: 6.8%; padding-left: 16px; padding-right: 16px;">{{ monthValue.termAmountForMonth }}</td>
+            <td style="width: 6.8%; padding-left: 16px; padding-right: 16px;">{{ monthValue.installment }}</td>
+            <td style="width: 6.8%; padding-left: 16px; padding-right: 16px;">{{ monthValue.interestAmount }}</td>
+            <td style="width: 6.8%; padding-left: 16px; padding-right: 16px;">{{ monthValue.taxDeduction }}</td>
+            <td style="width: 6.8%; padding-left: 16px; padding-right: 16px;">{{ monthValue.variousExpenses }}</td>
+            <td style="width: 6.8%; padding-left: 16px; padding-right: 16px;">{{ monthValue.rentalIncome }}</td>
+            <td style="width: 6.8%; padding-left: 16px; padding-right: 16px;">{{ monthValue.tax }}</td>
+            <td style="width: 6.8%; padding-left: 16px; padding-right: 16px;">{{ monthValue.cashFlow }}</td>
+            <td style="width: 6.8%; padding-left: 16px; padding-right: 16px;">{{ monthValue.netProfit }}</td>
+            <td style="width: 6.8%; padding-left: 16px; padding-right: 16px;">{{ monthValue.unrealizedCapital }}</td>
+            <td style="width: 6.8%; padding-left: 16px; padding-right: 16px;">{{ monthValue.netYield }}</td>
+            <td style="width: 4.8%; padding-left: 16px; padding-right: 16px;"></td>
           </div>
         </tr>
       </table>

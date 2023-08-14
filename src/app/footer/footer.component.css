@@ -1,0 +1,17 @@
+
+.footer-text {
+    /* Stiler for teksten */
+    color: white;      /* hvit tekst */
+    font-size: 2rem;   /* stor tekst */
+    
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%; /* hvis du vil at div skal fylle hele footerens høyde */
+
+    /* Tekststiler */
+    color: white;      /* hvit tekst */
+    font-size: 2rem;   /* stor tekst */
+    text-align: center;
+}

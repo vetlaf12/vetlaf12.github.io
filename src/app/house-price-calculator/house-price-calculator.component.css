@@ -1,0 +1,14 @@
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  footer {
+    margin-top: auto;
+
+    height: 230px;
+    background: rgb(54, 133, 229); 
+    flex-shrink: 0;
+}
+  
