@@ -17,6 +17,7 @@ import { HousePriceCalculatorComponent } from './house-price-calculator/house-pr
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { FooterComponent } from './footer/footer.component';
+import { SpaceSeparatedNumberPipe } from './space-separated-number.pipe';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { FooterComponent } from './footer/footer.component';
     PriceCalculationTableComponent,
     HousePriceCalculatorComponent,
     FooterComponent,
+    SpaceSeparatedNumberPipe,
   ],
   imports: [
     BrowserModule,

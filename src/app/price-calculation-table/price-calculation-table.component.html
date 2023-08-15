@@ -48,19 +48,19 @@
             class="row-element"
             [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'"
           >
-            <td style="width: 6.8%; padding-left: 16px; padding-right: 16px;">{{ monthValue.month }}</td>
-            <td style="width: 6.8%; padding-left: 16px; padding-right: 16px;">{{ monthValue.housingValue }}</td>
-            <td style="width: 6.8%; padding-left: 16px; padding-right: 16px;">{{ monthValue.outstandingLoan }}</td>
-            <td style="width: 6.8%; padding-left: 16px; padding-right: 16px;">{{ monthValue.termAmountForMonth }}</td>
-            <td style="width: 6.8%; padding-left: 16px; padding-right: 16px;">{{ monthValue.installment }}</td>
-            <td style="width: 6.8%; padding-left: 16px; padding-right: 16px;">{{ monthValue.interestAmount }}</td>
-            <td style="width: 6.8%; padding-left: 16px; padding-right: 16px;">{{ monthValue.taxDeduction }}</td>
-            <td style="width: 6.8%; padding-left: 16px; padding-right: 16px;">{{ monthValue.variousExpenses }}</td>
-            <td style="width: 6.8%; padding-left: 16px; padding-right: 16px;">{{ monthValue.rentalIncome }}</td>
-            <td style="width: 6.8%; padding-left: 16px; padding-right: 16px;">{{ monthValue.tax }}</td>
-            <td style="width: 6.8%; padding-left: 16px; padding-right: 16px;">{{ monthValue.cashFlow }}</td>
-            <td style="width: 6.8%; padding-left: 16px; padding-right: 16px;">{{ monthValue.netProfit }}</td>
-            <td style="width: 6.8%; padding-left: 16px; padding-right: 16px;">{{ monthValue.unrealizedCapital }}</td>
+            <td style="width: 6.8%; padding-left: 16px; padding-right: 16px;">{{ monthValue.month | spaceSeparatedNumber }}</td>
+            <td style="width: 6.8%; padding-left: 16px; padding-right: 16px;">{{ monthValue.housingValue | spaceSeparatedNumber }}</td>
+            <td style="width: 6.8%; padding-left: 16px; padding-right: 16px;">{{ monthValue.outstandingLoan | spaceSeparatedNumber }}</td>
+            <td style="width: 6.8%; padding-left: 16px; padding-right: 16px;">{{ monthValue.termAmountForMonth | spaceSeparatedNumber }}</td>
+            <td style="width: 6.8%; padding-left: 16px; padding-right: 16px;">{{ monthValue.installment | spaceSeparatedNumber }}</td>
+            <td style="width: 6.8%; padding-left: 16px; padding-right: 16px;">{{ monthValue.interestAmount | spaceSeparatedNumber }}</td>
+            <td style="width: 6.8%; padding-left: 16px; padding-right: 16px;">{{ monthValue.taxDeduction | spaceSeparatedNumber }}</td>
+            <td style="width: 6.8%; padding-left: 16px; padding-right: 16px;">{{ monthValue.variousExpenses | spaceSeparatedNumber }}</td>
+            <td style="width: 6.8%; padding-left: 16px; padding-right: 16px;">{{ monthValue.rentalIncome | spaceSeparatedNumber }}</td>
+            <td style="width: 6.8%; padding-left: 16px; padding-right: 16px;">{{ monthValue.tax | spaceSeparatedNumber }}</td>
+            <td style="width: 6.8%; padding-left: 16px; padding-right: 16px;">{{ monthValue.cashFlow | spaceSeparatedNumber }}</td>
+            <td style="width: 6.8%; padding-left: 16px; padding-right: 16px;">{{ monthValue.netProfit | spaceSeparatedNumber }}</td>
+            <td style="width: 6.8%; padding-left: 16px; padding-right: 16px;">{{ monthValue.unrealizedCapital | spaceSeparatedNumber }}</td>
             <td style="width: 6.8%; padding-left: 16px; padding-right: 16px;">{{ monthValue.netYield }}</td>
             <td style="width: 4.8%; padding-left: 16px; padding-right: 16px;"></td>
           </div>
